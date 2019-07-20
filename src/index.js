@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import MemoStore from './memo/Store'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <App />,
+    <Provider store={ MemoStore }>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 
