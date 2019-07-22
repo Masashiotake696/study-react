@@ -10,7 +10,7 @@ class AddForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = this.defaultProps;
+        this.state = AddForm.defaultProps;
     }
 
     doChange(event) {
