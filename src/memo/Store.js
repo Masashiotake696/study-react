@@ -1,7 +1,15 @@
+import { createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { TYPE_ADD } from './Const';
 import { TYPE_DELETE } from './Const';
 import { TYPE_FIND } from './Const';
-import { createStore } from 'redux';
+
+const persistConfig = {
+    key: 'memo',
+    storage,
+    whitelist: ['items', 'increment'],
+};
 
 const initialState = {
     items: [], // messageプロパティとcreated_atプロパティを持つオブジェクト配列
@@ -12,7 +20,7 @@ const initialState = {
 };
 
 // Reducer
-function memoReducer(state = initialState, action) {
+function reducer(state = initialState, action) {
     switch (action.type) {
         case TYPE_ADD:
             return addReduce(state, action);
@@ -27,10 +35,11 @@ function memoReducer(state = initialState, action) {
 
 // Actions
 function addReduce(state, action) {
+    const now = new Date();
     const item = {
         id: state.increment,
         message: action.message,
-        created_at: new Date(),
+        created_at: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
     };
 
     let newItems = state.items.slice();
@@ -46,12 +55,9 @@ function addReduce(state, action) {
 }
 
 function deleteReduce(state, action) {
-    console.log(action);
     const newItems = state.items.filter(function(item) {
         return item.id !== action.id;
     });
-
-    console.log(newItems);
 
     return {
         items: newItems,
@@ -79,4 +85,8 @@ function findReduce(state, action) {
     }
 }
 
-export default createStore(memoReducer);
+const persistedReducer = persistReducer(persistConfig, reducer);
+const store = createStore(persistedReducer);
+const persistor = persistStore(store);
+
+export { store, persistor };

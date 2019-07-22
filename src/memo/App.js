@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Memo from './memo/Memo';
-import AddForm from './memo/AddForm';
-import FindForm from './memo/FindForm';
-import DeleteForm from './memo/DeleteForm';
-import PersistForm from './memo/PersistForm';
+import Memo from './Memo';
+import AddForm from './AddForm';
+import FindForm from './FindForm';
+import DeleteForm from './DeleteForm';
+import PersistForm from './PersistForm';
 import './App.css';
 
 // Appコンポーネント

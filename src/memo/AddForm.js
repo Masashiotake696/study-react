@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { addMemo } from './Action';
 
 class AddForm extends Component {
-    defaultState = {
+    static defaultProps = {
         message: ''
     };
 
     constructor(props) {
         super(props);
 
-        this.state = this.defaultState;
+        this.state = this.defaultProps;
     }
 
     doChange(event) {
@@ -22,7 +22,7 @@ class AddForm extends Component {
     doSubmit(event) {
         event.preventDefault();
         this.props.dispatch(addMemo(this.state.message));
-        this.setState(this.defaultState);
+        this.setState(this.defaultProps);
     }
 
     render() {

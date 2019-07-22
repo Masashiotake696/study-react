@@ -38,4 +38,4 @@ class FindForm extends Component {
     }
 }
 
-export default FindForm;
+export default connect()(FindForm);
