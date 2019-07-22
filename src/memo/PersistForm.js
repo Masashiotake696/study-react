@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { persistor } from './Store';
 
 class PersistForm extends Component {
-    defaultState = {
+    static defaultStates = {
         checked: 'on'
     };
 
     constructor(props) {
         super(props);
 
-        this.state = this.defaultState;
+        this.state = PersistForm.defaultStates;
     }
 
     doChange(event) {

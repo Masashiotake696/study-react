@@ -51,7 +51,7 @@ function addReduce(state, action) {
         isFound: false,
         foundItems: [],
         increment: state.increment + 1,
-    }
+    };
 }
 
 function deleteReduce(state, action) {
@@ -65,7 +65,7 @@ function deleteReduce(state, action) {
         isFound: false,
         foundItems: [],
         increment: state.increment,
-    }
+    };
 }
 
 function findReduce(state, action) {
@@ -82,7 +82,7 @@ function findReduce(state, action) {
         isFound: true,
         foundItems: foundItems,
         increment: state.increment
-    }
+    };
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer);

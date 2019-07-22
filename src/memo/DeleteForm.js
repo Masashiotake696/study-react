@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { deleteMemo } from './Action';
 
 class DeleteForm extends Component {
-    defaultState = {
+    static defaultStates = {
         id: 0,
     };
 
     constructor(props) {
         super(props);
 
-        this.state = this.defaultState;
+        this.state = DeleteForm.defaultStates;
     }
 
     doChange(event) {
@@ -22,7 +22,7 @@ class DeleteForm extends Component {
     doSubmit(event) {
         event.preventDefault();
         this.props.dispatch(deleteMemo(this.state.id));
-        this.setState(this.defaultState);
+        this.setState(DeleteForm.defaultStates);
     }
 
     render() {

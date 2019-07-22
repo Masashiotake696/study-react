@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { findMemo } from './Action';
 
 class FindForm extends Component {
-    defaultState = {
+    static defaultStates = {
         keyWord: ''
     };
 
     constructor(props) {
         super(props);
 
-        this.state = this.defaultState;
+        this.state = FindForm.defaultStates;
     }
 
     doChange(event) {
@@ -22,7 +22,7 @@ class FindForm extends Component {
     doSubmit(event) {
         event.preventDefault();
         this.props.dispatch(findMemo(this.state.keyWord));
-        this.setState(this.defaultState);
+        this.setState(FindForm.defaultStates);
     }
 
     render() {
