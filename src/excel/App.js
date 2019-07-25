@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Excel from './excel/Excel';
+import Excel from './Excel';
 
 // Appコンポーネント
 class App extends Component {
@@ -11,27 +11,27 @@ class App extends Component {
         '売上部数',
     ];
 
-    static initialData = [
+    static data = [
         [
             'ワンピース',
             '山田さん',
             '日本語',
             '1954-1955',
-            150
+            '150 million'
         ],
         [
             'ナルト',
             '太郎',
             '日本語',
             '1974',
-            50
+            '50 million'
         ],
         [
             '進撃の巨人',
             '二郎',
             'English',
             '2000',
-            100
+            '100 million'
         ],
     ];
 
@@ -41,7 +41,7 @@ class App extends Component {
                 Excel,
                 {
                     headers: App.headers,
-                    initialData: App.initialData,
+                    data: App.data,
                 }
             )
         )
